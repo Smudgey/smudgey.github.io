@@ -194,7 +194,8 @@
       var ltaregex2 = /^IP16[0-9]{10}[ABCDEFGHJKLMNPRSTXYZ]$/;
       var ltaregex3 = /^FP16[0-9]{10}[ABCDEFGHJKLMNPRSTXYZ]$/;
       var tpsregex = /^[1-9A][0-9]{6}[ABCDEFHXJKLMNYPQRSTZW]$/;
-      (ltaregex1.test(input) || ltaregex2.test(input) || ltaregex3.test(input) || tpsregex.test(input));
+      var result = (ltaregex1.test(input) || ltaregex2.test(input) || ltaregex3.test(input) || tpsregex.test(input)) ? true:false;
+      return result;
     }
 
     function formvalidate() {
@@ -209,16 +210,16 @@
 
       //PSA ref validation
       if (psaref == "") {
-        document.getElementById("psareferr").innerHTML = "PSA Ref must be entered";
+        psareferr = "PSA Ref must be entered";
+        document.getElementById("psareferr").innerHTML = psareferr;
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
-        psareferr = "PSA Ref must be entered";
         err = true;
       } else if (!(psarefvalidate(psaref))) {
-        document.getElementById("psareferr").innerHTML = "PSA Ref must be in correct format";
+        psareferr = "PSA Ref must be in correct format";
+        document.getElementById("psareferr").innerHTML = psareferr;
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
-        psareferr = "PSA Ref must be in correct format";
         err = true;
       } else {
         document.getElementById("psareferr").innerHTML = "";
@@ -228,16 +229,16 @@
 
       //LTA ref validation
       if (ltaref == "") {
-        document.getElementById("ltareferr").innerHTML = "LTA Ref must be entered";
+        ltareferr = "LTA Ref must be entered";
+        document.getElementById("ltareferr").innerHTML = ltareferr;
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
-        ltareferr = "LTA Ref must be entered";
         err = true;
       } else if (!(ltarefvalidate(ltaref))) {
-        document.getElementById("ltareferr").innerHTML = "LTA Ref must be in correct format";
+        ltareferr = "LTA Ref must be in correct format";
+        document.getElementById("ltareferr").innerHTML = ltareferr;
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
-        ltareferr = "LTA Ref must be in correct format";
         err = true;
       } else {
         document.getElementById("ltareferr").innerHTML = "";
