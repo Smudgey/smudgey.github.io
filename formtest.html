@@ -1,29 +1,9 @@
 <!DOCTYPE HTML>
 <body>
-<?php
-// define variables and set to empty values
-$psaRefErr = $ltaRefErr = "";
-$psaRef = $ltaRef = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-if (empty($_POST["pensionSchemeAdministratorCheckReference"])) {
-  $psaRefErr = "PSA Ref must be entered";
-} else {
-  $psaRef = $_POST["pensionSchemeAdministratorCheckReference"];
-}
-
-if (empty($_POST["lifetimeAllowanceReference"])) {
-  $ltaRefErr = "LTA Ref must be entered";
-} else {
-  $ltaRef = $_POST["lifetimeAllowanceReference"];
-}
-}
-?>
-
   <html>
   <h2>PHP Form Validation Example</h2>
   <p><span class="error">* required field.</span></p>
-  <form method="post" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>">
+  <form method="post" action="formscript.php">
     <?php if($psaRefErr!=='') : ?>
     <div class="form-field form-field--error fields-aligned form-field--tall">
       <label> Pension Scheme Administrator Check Reference
