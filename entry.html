@@ -96,7 +96,7 @@
 
         <div class="flash error-summary " id="error-summary-display" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
           <h2 id="error-summary-heading" class="h3-heading">There are errors on this page</h2>
-          <ul class="js-error-summary-messages">
+          <ul class="js-error-summary-messages" id="errorsummarylist">
           </ul>
         </div>
 
@@ -186,7 +186,11 @@
 
   <script>
     function formvalidate() {
-      var psaref, ltaref, ltareferr, err;
+      var psaref, ltaref, psareferr, ltareferr, err, errorsummarylist;
+      errorsummarylist = document.getElementById("errorsummarylist");
+
+      ltareferr = "";
+      psareferr = "";
 
       psaref = document.getElementById("pensionSchemeAdministratorCheckReference").value;
       ltaref = document.getElementById("lifetimeAllowanceReference").value;
@@ -195,6 +199,7 @@
         document.getElementById("psareferr").innerHTML = "PSA Ref must be entered";
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
+        psareferr = "PSA Ref must be entered";
         err = true;
       } else {
         document.getElementById("psareferr").innerHTML = "";
@@ -205,14 +210,25 @@
         document.getElementById("ltareferr").innerHTML = "LTA Ref must be entered";
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
+        ltareferr = "LTA Ref must be entered";
         err = true;
       } else {
         document.getElementById("ltareferr").innerHTML = "";
         document.getElementById("ltareferr").className = "";
         document.getElementById("ltaref").className = "form-field";
       }
-      if(err) {
+      if (err) {
         document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
+        if (psareferr != "") {
+          var entry = document.createElement('li');
+          entry.appendChild(document.createTextNode(psareferr));
+          errorsummarylist.appendChild(entry);
+        }
+        if (ltareferr != "") {
+          var entry = document.createElement('li');
+          entry.appendChild(document.createTextNode(ltareferr));
+          errorsummarylist.appendChild(entry);
+        }
       } else {
         document.getElementById("error-summary-display").className = "flash error-summary";
       }
