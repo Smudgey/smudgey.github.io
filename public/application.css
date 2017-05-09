@@ -10052,7 +10052,7 @@ Styleguide Organisation Logo.Stacked
     font-size: 18px;
     line-height: 22px;
     padding: 3px 0 2px 38px;
-    background-image: url("../images/icons/crests/hmrc_crest_18px.png");
+    background-image: url("/public/images/hmrc_crest_18px.png");
     background-position: 6px center;
     border-left: 2px solid #009390;
     white-space: nowrap;
