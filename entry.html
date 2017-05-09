@@ -74,7 +74,7 @@
   <main id="wrapper" role="main">
     <div class="centered-content">
       <div class="service-info ">
-      <div class="logo">
+        <div class="logo">
           <span class="organisation-logo organisation-logo-medium">HM Revenue &amp; Customs</span>
         </div>
       </div>
@@ -97,43 +97,39 @@
         <div class="flash error-summary " id="error-summary-display" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
           <h2 id="error-summary-heading" class="h3-heading">There are errors on this page</h2>
           <ul class="js-error-summary-messages">
-
           </ul>
         </div>
 
-        <form action="/protect-your-lifetime-allowance/psalookup" method="POST">
-          <input type="hidden" name="csrfToken" value="09a40ba83c8354ea5e426e3cee294b9e05dcfa44-1494257078608-4990e5b3d16dadb03f997810" />
-
-
+        <form>
           <div class="form-group">
             <fieldset class="form-field-group">
 
-              <div class="form-field form-field--tall">
+              <div id="psaref" class="form-field form-field--tall">
 
                 <label> Pension Scheme Administrator Check Reference
-
+                    <div id="psareferr"></div>
                     <p class="form-field--hint">Example: PSA12345678A</p>
                     <input type="text" name="pensionSchemeAdministratorCheckReference" id="pensionSchemeAdministratorCheckReference"
                     class="input--medium input--cleared" value="PSA12345678A"/>
                 </label>
+
               </div>
 
-
-              <div class="form-field">
+              <div id="ltaref" class="form-field">
 
                 <label> Lifetime Allowance Reference
-
+                    <div id="ltareferr"></div>
                     <p class="form-field--hint">Example: IP141000000000A</p>
                     <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference"
                     class="input--medium input--cleared" value="A123456A"/>
                 </label>
+
               </div>
+
             </fieldset>
           </div>
-          <button class="button" type="submit">Submit</button>
-
+          <input type="submit" name="submit" value="Submit" onclick="formvalidate();return false">
         </form>
-
 
       </article>
 
@@ -147,7 +143,6 @@
           <div class="report-error__loading"></div>
         </div>
       </div>
-
 
     </div>
   </main>
