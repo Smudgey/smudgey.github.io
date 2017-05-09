@@ -1,50 +1,47 @@
 <!DOCTYPE HTML>
+<link rel="stylesheet" href="/public/application.css" />
+<link rel="stylesheet" href="/public/govuk-template.css" />
 <body>
   <html>
   <h2>PHP Form Validation Example</h2>
-  <p><span class="error">* required field.</span></p>
-  <form method="post" action="formscript.php">
-    <?php if($psaRefErr!=='') : ?>
-    <div class="form-field form-field--error fields-aligned form-field--tall">
+  <form method="post">
+    <div id="psaref" class="form-field form-field--tall">
       <label> Pension Scheme Administrator Check Reference
-                        <div class="error-notification" id="PSA Ref must be entered">
-                        <?php echo $psaRefErr ?>
-                        </div>
+        <div id="psareferr"></div>
                     <p class="form-field--hint">Example: PSA12345678A</p>
                     <input type="text" name="pensionSchemeAdministratorCheckReference" id="pensionSchemeAdministratorCheckReference" class="input--medium input--cleared" value="">
                 </label>
     </div>
-    <?php else : ?>
-    <div class="form-field form-field--tall">
-      <label> Pension Scheme Administrator Check Reference
-                    <p class="form-field--hint">Example: PSA12345678A</p>
-                    <input type="text" name="pensionSchemeAdministratorCheckReference" id="pensionSchemeAdministratorCheckReference" class="input--medium input--cleared" value="">
-                </label>
-    </div>
-    <?php endif; ?>
-
-    <?php if($ltaRefErr!=='') : ?>
-    <div class="form-field form-field--error fields-aligned">
+    <div id="ltaref" class="form-field">
       <label> Lifetime Allowance Reference
-
-                        <div class="error-notification" id="LTA Ref must be entered">
-                        <?php echo $ltaRefErr ?>
-                        </div>
-
+        <div id="ltareferr"></div>
                     <p class="form-field--hint">Example: IP141000000000A</p>
                     <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference" class="input--medium input--cleared" value="">
                 </label>
     </div>
-    <?php else : ?>
-    <div class="form-field">
-      <label> Lifetime Allowance Reference
-                    <p class="form-field--hint">Example: IP141000000000A</p>
-                    <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference" class="input--medium input--cleared" value="">
-                </label>
-    </div>
-    <?php endif; ?>
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit" name="submit" value="Submit" onclick="formvalidate()">
   </form>
-  </body>
 
-  </html>
+  <script>
+    function formvalidate() {
+      var psaref, ltaref, ltareferr;
+
+      psaref = document.getElementById("pensionSchemeAdministratorCheckReference").value;
+      ltaref = document.getElementById("lifetimeAllowanceReference").value;
+
+      if (psaref == null) {
+        document.getElementById("psareferr").innerHTML = "PSA Ref must be entered";
+        // document.getElementById("psareferr").className = "error-notification";
+        document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
+      }
+      if (ltaref == null) {
+        document.getElementById("ltareferr").innerHTML = "LTA Ref must be entered";
+        document.getElementById("ltareferr").className = "error-notification";
+        document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
+      }
+    }
+  </script>
+
+</body>
+
+</html>
