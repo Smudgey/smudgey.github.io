@@ -3,8 +3,7 @@
 <link rel="stylesheet" href="/public/govuk-template.css" />
 <body>
   <html>
-  <h2>PHP Form Validation Example</h2>
-  <form>
+  <form id="psaform">
     <div id="psaref" class="form-field form-field--tall">
       <label> Pension Scheme Administrator Check Reference
         <div id="psareferr"></div>
@@ -19,7 +18,7 @@
                     <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference" class="input--medium input--cleared" value="">
                 </label>
     </div>
-    <input type="submit" name="submit" value="Submit" onclick="formvalidate()">
+    <input type="submit" name="submit" value="Submit" onclick="formvalidate();return false">
   </form>
 
   <script>
@@ -29,15 +28,23 @@
       psaref = document.getElementById("pensionSchemeAdministratorCheckReference").value;
       ltaref = document.getElementById("lifetimeAllowanceReference").value;
 
-      if (psaref == null) {
+      if (psaref == "") {
         document.getElementById("psareferr").innerHTML = "PSA Ref must be entered";
-        // document.getElementById("psareferr").className = "error-notification";
+        document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
+      } else {
+        document.getElementById("psareferr").innerHTML = "";
+        document.getElementById("psareferr").className = "";
+        document.getElementById("psaref").className = "form-field form-field--tall";
       }
-      if (ltaref == null) {
+      if (ltaref == "") {
         document.getElementById("ltareferr").innerHTML = "LTA Ref must be entered";
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
+      } else {
+        document.getElementById("ltareferr").innerHTML = "";
+        document.getElementById("ltareferr").className = "";
+        document.getElementById("ltaref").className = "form-field";
       }
     }
   </script>
