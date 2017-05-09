@@ -266,7 +266,34 @@
         }
       } else {
         document.getElementById("error-summary-display").className = "flash error-summary";
-        window.location.href = "https://smudgey.github.io/result1"
+        switch (psaref) {
+          case "PSA12345678A":
+            window.location.href = "https://smudgey.github.io/result1";
+            break;
+          case "PSA12345678B":
+            window.location.href = "https://smudgey.github.io/result2";
+            break;
+          case "PSA12345678C":
+            window.location.href = "https://smudgey.github.io/result3";
+            break;
+          case "PSA12345678D":
+            window.location.href = "https://smudgey.github.io/result4";
+            break;
+          case "PSA12345678E":
+            window.location.href = "https://smudgey.github.io/result5";
+            break;
+          case "PSA12345678F":
+            window.location.href = "https://smudgey.github.io/result6";
+            break;
+          case "PSA12345678G":
+            window.location.href = "https://smudgey.github.io/result7";
+            break;
+          default:
+          document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
+            var entry = document.createElement('li');
+            entry.appendChild(document.createTextNode("The details you entered do not have a valid protection"));
+            errorsummarylist.appendChild(entry);
+        }
       }
     }
   </script>
