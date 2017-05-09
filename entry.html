@@ -190,8 +190,11 @@
     }
 
     function ltarefvalidate(input) {
-      var ltaregex = /^(IP14|IP16|FP16)[0-9]{10}[ABCDEFGHJKLMNPRSTXYZ]$/;
-      ltaregex.test(input);
+      var ltaregex1 = /^IP14[0-9]{10}[ABCDEFGHJKLMNPRSTXYZ]$/;
+      var ltaregex2 = /^IP16[0-9]{10}[ABCDEFGHJKLMNPRSTXYZ]$/;
+      var ltaregex3 = /^FP16[0-9]{10}[ABCDEFGHJKLMNPRSTXYZ]$/;
+      var tpsregex = /^[1-9A][0-9]{6}[ABCDEFHXJKLMNYPQRSTZW]$/;
+      (ltaregex1.test(input) || ltaregex2.test(input) || ltaregex3.test(input) || tpsregex.test(input));
     }
 
     function formvalidate() {
@@ -222,7 +225,7 @@
         document.getElementById("psareferr").className = "";
         document.getElementById("psaref").className = "form-field form-field--tall";
       }
-      
+
       //LTA ref validation
       if (ltaref == "") {
         document.getElementById("ltareferr").innerHTML = "LTA Ref must be entered";
@@ -234,7 +237,7 @@
         document.getElementById("ltareferr").innerHTML = "LTA Ref must be in correct format";
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
-        psareferr = "LTA Ref must be in correct format";
+        ltareferr = "LTA Ref must be in correct format";
         err = true;
       } else {
         document.getElementById("ltareferr").innerHTML = "";
