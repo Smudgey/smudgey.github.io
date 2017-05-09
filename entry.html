@@ -187,8 +187,8 @@
   <script>
     function formvalidate() {
       var psaref, ltaref, psareferr, ltareferr, err, errorsummarylist;
-      errorsummarylist = document.getElementById("errorsummarylist");
 
+      errorsummarylist = document.getElementById("errorsummarylist");
       ltareferr = "";
       psareferr = "";
 
@@ -216,6 +216,9 @@
         document.getElementById("ltareferr").innerHTML = "";
         document.getElementById("ltareferr").className = "";
         document.getElementById("ltaref").className = "form-field";
+      }
+      while (errorsummarylist.firstChild) {
+        errorsummarylist.removeChild(errorsummarylist.firstChild);
       }
       if (err) {
         document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
