@@ -110,7 +110,7 @@
                     <div id="psareferr"></div>
                     <p class="form-field--hint">Example: PSA12345678A</p>
                     <input type="text" name="pensionSchemeAdministratorCheckReference" id="pensionSchemeAdministratorCheckReference"
-                    class="input--medium input--cleared" value="PSA12345678A"/>
+                    class="input--medium input--cleared"/>
                 </label>
 
               </div>
@@ -121,7 +121,7 @@
                     <div id="ltareferr"></div>
                     <p class="form-field--hint">Example: IP141000000000A</p>
                     <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference"
-                    class="input--medium input--cleared" value="A123456A"/>
+                    class="input--medium input--cleared"/>
                 </label>
 
               </div>
@@ -186,7 +186,7 @@
 
   <script>
     function formvalidate() {
-      var psaref, ltaref, ltareferr;
+      var psaref, ltaref, ltareferr, err;
 
       psaref = document.getElementById("pensionSchemeAdministratorCheckReference").value;
       ltaref = document.getElementById("lifetimeAllowanceReference").value;
@@ -195,6 +195,7 @@
         document.getElementById("psareferr").innerHTML = "PSA Ref must be entered";
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
+        err = true;
       } else {
         document.getElementById("psareferr").innerHTML = "";
         document.getElementById("psareferr").className = "";
@@ -204,10 +205,16 @@
         document.getElementById("ltareferr").innerHTML = "LTA Ref must be entered";
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
+        err = true;
       } else {
         document.getElementById("ltareferr").innerHTML = "";
         document.getElementById("ltareferr").className = "";
         document.getElementById("ltaref").className = "form-field";
+      }
+      if(err) {
+        document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
+      } else {
+        document.getElementById("error-summary-display").className = "flash error-summary";
       }
     }
   </script>
