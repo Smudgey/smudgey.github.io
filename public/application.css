@@ -10062,7 +10062,7 @@ Styleguide Organisation Logo.Stacked
 @media (min-width: 641px) {
   .organisation-logo-stacked-medium {
     padding: 25px 0 0 7px;
-    background-image: url("../images/icons/crests/hmrc_crest_18px.png");
+    background-image: url("/public/images/hmrc_crest_18px.png");
     background-position: 6px top;
   }
 }
@@ -10078,7 +10078,7 @@ Styleguide Organisation Logo.Stacked
 @media all and (min-width: 641px) and (-webkit-min-device-pixel-ratio: 2) {
   .organisation-logo-medium, .organisation-logo-stacked-medium,
   .organisation-logo-stacked-medium {
-    background-image: url("../images/icons/crests/hmrc_crest_18px_x2.png");
+    background-image: url("/public/images/hmrc_crest_18px_x2.png");
     background-size: auto 26px;
   }
 }
@@ -11461,8 +11461,8 @@ Typically used on the landing page of a service.
 Provides classes for a heading and a subheading.
 
 Markup:
-<header class="hero">  
-    <section class="hero__content">        
+<header class="hero">
+    <section class="hero__content">
         <h1 class="hero__heading-large">Hero Heading</h1>
         <h2 class="hero__heading-small">
           Hero subheading
@@ -11684,7 +11684,7 @@ Expand/collapse content with optional row/column structure.
 
 Mandatory JS hooks:
  * `data-accordion` - main outer container hook to init accordion JS module
- * `data-accordion-button` - button clicked to expand/collapse 
+ * `data-accordion-button` - button clicked to expand/collapse
  * `data-accordion-body` - the main body content to be expanded/collapsed
  * `data-accordion-animate` - animate body expansion/collapse
  * **BUG**: animate should be optional but currently the non-animate has a bug. Issue raised here: https://github.com/hmrc/assets-frontend/issues/553
@@ -11703,7 +11703,7 @@ Mandatory classes:
 
 Optional Classes:
  * `accordion__row__left` - left row contained in `accordion__row`
- * `accordion__indicator` - for arrow styling, used in conjunction with `arrow` component 
+ * `accordion__indicator` - for arrow styling, used in conjunction with `arrow` component
  * `accordion__row__right` - right row container in `accordion__row`
  * `accordion__body__row` - a row of content in the body
  * `accordion__body__row--no-border` - modifier style used in conjunction with `accordion__body__row` to suppress bottom border
@@ -11725,7 +11725,7 @@ Markup:
        aria-expanded="false"
        class="accordion">
     <div class="accordion__row">
-      <div class="accordion__row__left">                
+      <div class="accordion__row__left">
         <a class="accordion__button link--no-underline bold-small" href="" data-accordion-button role="button">
           Accordion Button
         </a>
@@ -11747,14 +11747,14 @@ Full Accordion
 Using all optional classes.
 
 Markup:
-  <div id="accordionId" 
-       data-accordion  
-       data-accordion-animate     
+  <div id="accordionId"
+       data-accordion
+       data-accordion-animate
        data-accordion-set-hash
        aria-expanded="false"
        class="accordion">
     <div class="accordion__row">
-      <div class="accordion__row__left">        
+      <div class="accordion__row__left">
         <i class="accordion__indicator arrow arrow--right font-small" data-accordion-arrow></i>
         <a class="accordion__button link--no-underline bold-small" href="" data-accordion-button role="button">
           Accordion Button
@@ -11762,8 +11762,8 @@ Markup:
       </div>
       <div class="accordion__row__right align--top">
         <p class="font-xsmall flush--top">Top right content</p>
-        <div data-accordion-reveal>  
-          <p class="font-xsmall flush--bottom">Optionally revealed on expand</p>                  
+        <div data-accordion-reveal>
+          <p class="font-xsmall flush--bottom">Optionally revealed on expand</p>
         </div>
       </div>
     </div>
@@ -12596,7 +12596,7 @@ body.scroll-off {
 App Info
 
 An item which describes an application. Typically this would be one item in a list of applications.
-The heading is the application name. 
+The heading is the application name.
 The info below the heading typically provides subtext of less importance, e.g. date of submission.
 The call-to-action link is typically to process a pending application, e.g. Review.
 

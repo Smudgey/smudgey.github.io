@@ -684,7 +684,7 @@ button:focus,
           margin-top: 0; } }
       #footer .footer-meta .copyright a {
         display: block;
-        background-image: url(images/govuk-crest.png?0.17.3);
+        background-image: url(/public/images/govuk-crest.png);
         background-repeat: no-repeat;
         background-position: 50% 0%;
         text-align: center;
@@ -695,7 +695,7 @@ button:focus,
             background-position: 100% 0%; } }
         @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
           #footer .footer-meta .copyright a {
-            background-image: url(images/govuk-crest-2x.png?0.17.3);
+            background-image: url(/public/images/govuk-crest-2x.png);
             background-size: 125px 102px; } }
         @media (min-width: 641px) {
           #footer .footer-meta .copyright a {
