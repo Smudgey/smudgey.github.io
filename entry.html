@@ -191,7 +191,7 @@
       ltareferr = "";
       psareferr = "";
 
-      //var psaregex = ^PSA[0-9]{8}[A-Z]$;
+      var psaregex = /^PSA[0-9]{8}[A-Z]$/;
 
       psaref = document.getElementById("pensionSchemeAdministratorCheckReference").value;
       ltaref = document.getElementById("lifetimeAllowanceReference").value;
@@ -202,15 +202,13 @@
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
         psareferr = "PSA Ref must be entered";
         err = true;
-      }
-      // else if(!(psaregex.test(psaref))) {
-      //   document.getElementById("psareferr").innerHTML = "PSA Ref must be in correct format";
-      //   document.getElementById("psareferr").className = "error-notification";
-      //   document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
-      //   psareferr = "PSA Ref must be in correct format";
-      //   err = true;
-      // }
-      else {
+      } else if (!(psaregex.test(psaref))) {
+        document.getElementById("psareferr").innerHTML = "PSA Ref must be in correct format";
+        document.getElementById("psareferr").className = "error-notification";
+        document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
+        psareferr = "PSA Ref must be in correct format";
+        err = true;
+      } else {
         document.getElementById("psareferr").innerHTML = "";
         document.getElementById("psareferr").className = "";
         document.getElementById("psaref").className = "form-field form-field--tall";
