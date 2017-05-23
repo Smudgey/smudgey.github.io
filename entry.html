@@ -265,7 +265,7 @@
         }
       } else {
         document.getElementById("error-summary-display").className = "flash error-summary";
-        switch (psaref) {
+        switch (psaref.toUpperCase()) {
           case "PSA12345678A":
             window.location.href = "https://smudgey.github.io/result1";
             break;
