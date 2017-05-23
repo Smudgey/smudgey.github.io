@@ -216,7 +216,7 @@
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
         err = true;
-      } else if (psarefvalidate(psaref)) {
+      } else if (psarefvalidate(psaref.toUpperCase())) {
         psareferr = "PSA Ref must be in correct format";
         document.getElementById("psareferr").innerHTML = psareferr;
         document.getElementById("psareferr").className = "error-notification";
@@ -235,7 +235,7 @@
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
         err = true;
-      } else if (ltarefvalidate(ltaref)) {
+      } else if (ltarefvalidate(ltaref.toUpperCase())) {
         ltareferr = "LTA Ref must be in correct format";
         document.getElementById("ltareferr").innerHTML = ltareferr;
         document.getElementById("ltareferr").className = "error-notification";
@@ -288,7 +288,7 @@
             window.location.href = "https://smudgey.github.io/result7";
             break;
           default:
-          document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
+            document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
             var entry = document.createElement('li');
             entry.appendChild(document.createTextNode("The details you entered do not have a valid protection"));
             errorsummarylist.appendChild(entry);
