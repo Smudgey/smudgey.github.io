@@ -103,11 +103,17 @@
 
               <div id="psaref" class="form-field form-field--tall">
 
-                <label> <h2 style="width: 592px"> Pension Scheme Administrator Check Reference </h2>
+                <label> <h2 style="width: 570px"> Pension Scheme Administrator Check Reference </h2>
                     <div id="psareferr"></div>
                     <p class="form-field--hint">Example: PSA12345678A</p>
                     <input type="text" name="pensionSchemeAdministratorCheckReference" id="pensionSchemeAdministratorCheckReference"
-                    class="input--medium input--cleared"/>
+                    class="input--medium input--cleared"  maxlength="3" style="width: 70px; float: left;"/>
+                    <input type="text" name="pensionSchemeAdministratorCheckReference2" id="pensionSchemeAdministratorCheckReference2"
+                    class="input--medium input--cleared"  maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
+                    <input type="text" name="pensionSchemeAdministratorCheckReference3" id="pensionSchemeAdministratorCheckReference3"
+                    class="input--medium input--cleared"  maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
+                    <input type="text" name="pensionSchemeAdministratorCheckReference4" id="pensionSchemeAdministratorCheckReference4"
+                    class="input--medium input--cleared"  maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
                 </label>
 
               </div>
@@ -118,7 +124,13 @@
                     <div id="ltareferr"></div>
                     <p class="form-field--hint">Example: IP141000000000A</p>
                     <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference"
-                    class="input--medium input--cleared"/>
+                    class="input--medium input--cleared" maxlength="4" style="width: 70px; float: left;"/>
+                    <input type="text" name="lifetimeAllowanceReference2" id="lifetimeAllowanceReference2"
+                    class="input--medium input--cleared" maxlength="4" style="width: 70px; float: left; margin-left: 10px;"/>
+                    <input type="text" name="lifetimeAllowanceReference3" id="lifetimeAllowanceReference3"
+                    class="input--medium input--cleared" maxlength="4" style="width: 70px; float: left; margin-left: 10px;"/>
+                    <input type="text" name="lifetimeAllowanceReference4" id="lifetimeAllowanceReference4"
+                    class="input--medium input--cleared" maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
                 </label>
 
               </div>
@@ -216,7 +228,7 @@
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
         err = true;
-      } else if (psarefvalidate(psaref)) {
+      } else if (psarefvalidate(psaref.toUpperCase())) {
         psareferr = "PSA Ref must be in correct format";
         document.getElementById("psareferr").innerHTML = psareferr;
         document.getElementById("psareferr").className = "error-notification";
@@ -235,7 +247,7 @@
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
         err = true;
-      } else if (ltarefvalidate(ltaref)) {
+      } else if (ltarefvalidate(ltaref.toUpperCase())) {
         ltareferr = "LTA Ref must be in correct format";
         document.getElementById("ltareferr").innerHTML = ltareferr;
         document.getElementById("ltareferr").className = "error-notification";
@@ -265,7 +277,7 @@
         }
       } else {
         document.getElementById("error-summary-display").className = "flash error-summary";
-        switch (psaref) {
+        switch (psaref.toUpperCase()) {
           case "PSA12345678A":
             window.location.href = "https://smudgey.github.io/result1";
             break;
@@ -288,7 +300,7 @@
             window.location.href = "https://smudgey.github.io/result7";
             break;
           default:
-          document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
+            document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
             var entry = document.createElement('li');
             entry.appendChild(document.createTextNode("The details you entered do not have a valid protection"));
             errorsummarylist.appendChild(entry);
