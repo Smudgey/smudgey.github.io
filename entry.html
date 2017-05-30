@@ -125,7 +125,7 @@
                 <label> <h2> Protection Notification Number </h2>
                     <div id="ltareferr"></div>
                     <p class="form-field--hint">Example: IP141000000000A</p>
-                    <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference"
+                    <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference1"
                     class="input--medium input--cleared uppercase" onkeyup="moveOnMax(this,document.getElementById('lifetimeAllowanceReference2'))" maxlength="4" style="width: 70px; float: left;"/>
                     <input type="text" name="lifetimeAllowanceReference2" id="lifetimeAllowanceReference2"
                     class="input--medium input--cleared uppercase" onkeyup="moveOnMax(this,document.getElementById('lifetimeAllowanceReference3'))" maxlength="4" style="width: 70px; float: left; margin-left: 10px;"/>
@@ -220,8 +220,16 @@
       ltareferr = "";
       psareferr = "";
 
-      psaref = document.getElementById("pensionSchemeAdministratorCheckReference").value;
-      ltaref = document.getElementById("lifetimeAllowanceReference").value;
+      psaref1 = document.getElementById("pensionSchemeAdministratorCheckReference1").value;
+      psaref2 = document.getElementById("pensionSchemeAdministratorCheckReference2").value;
+      psaref3 = document.getElementById("pensionSchemeAdministratorCheckReference3").value;
+      psaref4 = document.getElementById("pensionSchemeAdministratorCheckReference4").value;
+      psaref = psaref1 + psaref2 + psaref3 + psaref4;
+      ltaref1 = document.getElementById("lifetimeAllowanceReference1").value;
+      ltaref2 = document.getElementById("lifetimeAllowanceReference2").value;
+      ltaref3 = document.getElementById("lifetimeAllowanceReference3").value;
+      ltaref4 = document.getElementById("lifetimeAllowanceReference4").value;
+      ltaref = ltaref1 + ltaref2 + ltaref3 + ltaref4;
 
       //PSA ref validation
       if (psaref == "") {
@@ -303,6 +311,7 @@
             break;
           case "PSA12345678H":
             window.location.href = "https://smudgey.github.io/invalidResult";
+            break;
           default:
             document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
             var entry = document.createElement('li');
