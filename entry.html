@@ -6,7 +6,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-  <title>PSA Lookup</title>
+  <title>Lifetime Allowance Protection Checker</title>
 
   <script type="text/javascript">
     (function() {
@@ -18,6 +18,9 @@
         d.getElementsByTagName("head")[0][c](a);
       }
     })();
+      
+      function moveOnMax(field, nextFieldID) { if (field.value.length >= field.maxLength) { nextFieldID.focus(); } }
+      
   </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,10 +89,9 @@
 
         <p class="">English | Cymraeg</p>
 
-        <h1 class="heading-48 heading--underlined"> PSA Lookup form</h1>
+        <h1 class="heading-48 heading--underlined"> Lifetime Allowance Protection Checker</h1>
 
-        <p> Input a Pension scheme administrator check reference and client Lifetime Allowance reference to find out whether a pension has Lifetime Allowance protection.
-        </p>
+          <p> Enter a Scheme Administrator reference and a Protection Notification number to check the details and validity of any protection type </p>
 
         <div class="flash error-summary " id="error-summary-display" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
           <h2 id="error-summary-heading" class="h3-heading">There are errors on this page</h2>
@@ -103,34 +105,34 @@
 
               <div id="psaref" class="form-field form-field--tall">
 
-                <label> <h2 style="width: 570px"> Pension Scheme Administrator Check Reference </h2>
+                <label> <h2 style="width: 570px"> Scheme Administrator Reference </h2>
                     <div id="psareferr"></div>
                     <p class="form-field--hint">Example: PSA12345678A</p>
-                    <input type="text" name="pensionSchemeAdministratorCheckReference" id="pensionSchemeAdministratorCheckReference"
-                    class="input--medium input--cleared"  maxlength="3" style="width: 70px; float: left;"/>
-                    <input type="text" name="pensionSchemeAdministratorCheckReference2" id="pensionSchemeAdministratorCheckReference2"
-                    class="input--medium input--cleared"  maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
-                    <input type="text" name="pensionSchemeAdministratorCheckReference3" id="pensionSchemeAdministratorCheckReference3"
-                    class="input--medium input--cleared"  maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
-                    <input type="text" name="pensionSchemeAdministratorCheckReference4" id="pensionSchemeAdministratorCheckReference4"
-                    class="input--medium input--cleared"  maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
+                    <input class="uppercase" type="text" name="pensionSchemeAdministratorCheckReference" id="pensionSchemeAdministratorCheckReference1"
+                    class="input--medium input--cleared" onkeyup="moveOnMax(this,document.getElementById('pensionSchemeAdministratorCheckReference2'))"  maxlength="3" style="width: 70px; float: left;"/>
+                        <input class="uppercase" type="text" name="pensionSchemeAdministratorCheckReference2" id="pensionSchemeAdministratorCheckReference2"
+                    class="input--medium input--cleared" onkeyup="moveOnMax(this,document.getElementById('pensionSchemeAdministratorCheckReference3'))" maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
+                    <input class="uppercase" type="text" name="pensionSchemeAdministratorCheckReference3" id="pensionSchemeAdministratorCheckReference3"
+                    class="input--medium input--cleared" onkeyup="moveOnMax(this,document.getElementById('pensionSchemeAdministratorCheckReference4'))" maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
+                    <input class="uppercase" type="text" name="pensionSchemeAdministratorCheckReference4" id="pensionSchemeAdministratorCheckReference4"
+                    class="input--medium input--cleared" maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
                 </label>
 
               </div>
 
               <div id="ltaref" class="form-field">
 
-                <label> <h2> Lifetime Allowance Reference </h2>
+                <label> <h2> Protection Notification Number </h2>
                     <div id="ltareferr"></div>
                     <p class="form-field--hint">Example: IP141000000000A</p>
                     <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference"
-                    class="input--medium input--cleared" maxlength="4" style="width: 70px; float: left;"/>
+                    class="input--medium input--cleared uppercase" onkeyup="moveOnMax(this,document.getElementById('lifetimeAllowanceReference2'))" maxlength="4" style="width: 70px; float: left;"/>
                     <input type="text" name="lifetimeAllowanceReference2" id="lifetimeAllowanceReference2"
-                    class="input--medium input--cleared" maxlength="4" style="width: 70px; float: left; margin-left: 10px;"/>
+                    class="input--medium input--cleared uppercase" onkeyup="moveOnMax(this,document.getElementById('lifetimeAllowanceReference3'))" maxlength="4" style="width: 70px; float: left; margin-left: 10px;"/>
                     <input type="text" name="lifetimeAllowanceReference3" id="lifetimeAllowanceReference3"
-                    class="input--medium input--cleared" maxlength="4" style="width: 70px; float: left; margin-left: 10px;"/>
+                    class="input--medium input--cleared uppercase" onkeyup="moveOnMax(this,document.getElementById('lifetimeAllowanceReference4'))" maxlength="4" style="width: 70px; float: left; margin-left: 10px;"/>
                     <input type="text" name="lifetimeAllowanceReference4" id="lifetimeAllowanceReference4"
-                    class="input--medium input--cleared" maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
+                    class="input--medium input--cleared uppercase" maxlength="3" style="width: 70px; float: left; margin-left: 10px;"/>
                 </label>
 
               </div>
@@ -299,6 +301,8 @@
           case "PSA12345678G":
             window.location.href = "https://smudgey.github.io/result7";
             break;
+          case "PSA12345678H":
+            window.location.href = "https://smudgey.github.io/invalidResult";
           default:
             document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
             var entry = document.createElement('li');
