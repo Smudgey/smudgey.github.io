@@ -233,13 +233,13 @@
 
       //PSA ref validation
       if (psaref == "") {
-        psareferr = "PSA Ref must be entered";
+        psareferr = "Scheme Administrator Reference must be entered";
         document.getElementById("psareferr").innerHTML = psareferr;
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
         err = true;
       } else if (psarefvalidate(psaref.toUpperCase())) {
-        psareferr = "PSA Ref must be in correct format";
+        psareferr = "Scheme Administrator Reference must be in correct format";
         document.getElementById("psareferr").innerHTML = psareferr;
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
@@ -252,13 +252,13 @@
 
       //LTA ref validation
       if (ltaref == "") {
-        ltareferr = "LTA Ref must be entered";
+        ltareferr = "Protection Notification Number must be entered";
         document.getElementById("ltareferr").innerHTML = ltareferr;
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
         err = true;
       } else if (ltarefvalidate(ltaref.toUpperCase())) {
-        ltareferr = "LTA Ref must be in correct format";
+        ltareferr = "Protection Notification Number must be in correct format";
         document.getElementById("ltareferr").innerHTML = ltareferr;
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
