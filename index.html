@@ -45,7 +45,7 @@ if (empty($_POST["lifetimeAllowanceReference"])) {
 
     <?php if($ltaRefErr!=='') : ?>
     <div class="form-field form-field--error fields-aligned">
-      <label> Lifetime Allowance Reference
+      <label> Protection Notification Number
 
                         <div class="error-notification" id="LTA Ref must be entered">
                         <?php echo $ltaRefErr ?>
@@ -57,7 +57,7 @@ if (empty($_POST["lifetimeAllowanceReference"])) {
     </div>
     <?php else : ?>
     <div class="form-field">
-      <label> Lifetime Allowance Reference
+      <label> Protection Notification Number
                     <p class="form-field--hint">Example: IP141000000000A</p>
                     <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference" class="input--medium input--cleared" value="">
                 </label>

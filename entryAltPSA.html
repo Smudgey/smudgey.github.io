@@ -6,7 +6,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-  <title>Check the status of a Lifetime Allowance Protection</title>
+  <title>What's the Scheme Administrator Reference?</title>
 
   <script type="text/javascript">
     (function() {
@@ -89,7 +89,7 @@
 
         <p class="">English | Cymraeg</p>
 
-        <h1> Check the status of a Lifetime Allowance Protection</h1>
+        <h1> What's the Scheme Administrator Reference?</h1>
 
         <div class="flash error-summary " id="error-summary-display" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
           <h2 id="error-summary-heading" class="h3-heading">There are errors on this page</h2>
@@ -102,33 +102,18 @@
             <fieldset class="form-field-group">
 
               <div id="psaref" class="form-field form-field--tall">
-
-                <label> <h2 style="width: 570px"> Scheme Administrator Reference </h2>
                     <div id="psareferr"></div>
                     <p class="form-field--hint">Example: PSA12345678A</p>
                     <input class="uppercase" type="text" name="pensionSchemeAdministratorCheckReference" id="pensionSchemeAdministratorCheckReference"
-                    class="input--medium input--cleared" maxlength="12" style="width: 300px; float: left;"/>
-                </label>
-
+                    class="input--medium input--cleared"  maxlength="12" style="width: 300px; float: left;"/>
               </div>
-
-              <div id="ltaref" class="form-field">
-
-                <label> <h2> Protection Notification Number </h2>
-                    <div id="ltareferr"></div>
-                    <p class="form-field--hint">Example: IP141234567890A</p>
-                    <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference" class="input--medium input--cleared uppercase" maxlength="15" style="width: 300px; float: left;"/>
-                </label>
-
-              </div>
-
             </fieldset>
           </div>
           <input class="button" type="submit" name="submit" value="Submit" onclick="formvalidate();return false">
         </form>
-          <br>
-        <a class="back-link" href="https://smudgey.github.io/start">Back</a>
-
+        <br>
+        <a class="back-link" href="https://smudgey.github.io/entryAltLTA">Back</a>
+          
       </article>
 
       <div class="report-error">
@@ -204,21 +189,19 @@
       err = false;
 
       errorsummarylist = document.getElementById("errorsummarylist");
-      ltareferr = "";
       psareferr = "";
 
       psaref = document.getElementById("pensionSchemeAdministratorCheckReference").value;
-      ltaref = document.getElementById("lifetimeAllowanceReference").value;
 
       //PSA ref validation
       if (psaref == "") {
-        psareferr = "Please enter a Scheme Administrator Reference";
+        psareferr = "Scheme Administrator Reference needs to be entered";
         document.getElementById("psareferr").innerHTML = psareferr;
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
         err = true;
       } else if (psarefvalidate(psaref.toUpperCase())) {
-        psareferr = "Scheme Administrator Reference must be in correct format";
+        psareferr = "Scheme Administrator Reference needs to be in the correct format";
         document.getElementById("psareferr").innerHTML = psareferr;
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
@@ -227,25 +210,6 @@
         document.getElementById("psareferr").innerHTML = "";
         document.getElementById("psareferr").className = "";
         document.getElementById("psaref").className = "form-field form-field--tall";
-      }
-
-      //LTA ref validation
-      if (ltaref == "") {
-        ltareferr = "Please enter a Protection Notification Number";
-        document.getElementById("ltareferr").innerHTML = ltareferr;
-        document.getElementById("ltareferr").className = "error-notification";
-        document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
-        err = true;
-      } else if (ltarefvalidate(ltaref.toUpperCase())) {
-        ltareferr = "Protection Notification Number must be in correct format";
-        document.getElementById("ltareferr").innerHTML = ltareferr;
-        document.getElementById("ltareferr").className = "error-notification";
-        document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
-        err = true;
-      } else {
-        document.getElementById("ltareferr").innerHTML = "";
-        document.getElementById("ltareferr").className = "";
-        document.getElementById("ltaref").className = "form-field";
       }
 
       while (errorsummarylist.firstChild) {
@@ -257,11 +221,6 @@
         if (psareferr != "") {
           var entry = document.createElement('li');
           entry.appendChild(document.createTextNode(psareferr));
-          errorsummarylist.appendChild(entry);
-        }
-        if (ltareferr != "") {
-          var entry = document.createElement('li');
-          entry.appendChild(document.createTextNode(ltareferr));
           errorsummarylist.appendChild(entry);
         }
       } else {

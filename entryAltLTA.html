@@ -6,7 +6,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-  <title>Check the status of a Lifetime Allowance Protection</title>
+  <title>What's the Protection Notification Number?</title>
 
   <script type="text/javascript">
     (function() {
@@ -88,8 +88,8 @@
       <article class="content__body">
 
         <p class="">English | Cymraeg</p>
-
-        <h1> Check the status of a Lifetime Allowance Protection</h1>
+          
+          <h1> What's the Protection Notification Number?</h1>
 
         <div class="flash error-summary " id="error-summary-display" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
           <h2 id="error-summary-heading" class="h3-heading">There are errors on this page</h2>
@@ -100,31 +100,18 @@
         <form>
           <div class="form-group">
             <fieldset class="form-field-group">
-
-              <div id="psaref" class="form-field form-field--tall">
-
-                <label> <h2 style="width: 570px"> Scheme Administrator Reference </h2>
-                    <div id="psareferr"></div>
-                    <p class="form-field--hint">Example: PSA12345678A</p>
-                    <input class="uppercase" type="text" name="pensionSchemeAdministratorCheckReference" id="pensionSchemeAdministratorCheckReference"
-                    class="input--medium input--cleared" maxlength="12" style="width: 300px; float: left;"/>
-                </label>
-
-              </div>
-
+                
               <div id="ltaref" class="form-field">
 
-                <label> <h2> Protection Notification Number </h2>
                     <div id="ltareferr"></div>
                     <p class="form-field--hint">Example: IP141234567890A</p>
                     <input type="text" name="lifetimeAllowanceReference" id="lifetimeAllowanceReference" class="input--medium input--cleared uppercase" maxlength="15" style="width: 300px; float: left;"/>
-                </label>
 
               </div>
 
             </fieldset>
           </div>
-          <input class="button" type="submit" name="submit" value="Submit" onclick="formvalidate();return false">
+          <input class="button" type="submit" name="submit" value="Continue" onclick="formvalidate();return false">
         </form>
           <br>
         <a class="back-link" href="https://smudgey.github.io/start">Back</a>
@@ -183,12 +170,6 @@
   <script src="http://localhost:9032/assets/2.222.0/javascripts/application.min.js" type="text/javascript"></script>
 
   <script>
-    function psarefvalidate(input) {
-      var psaregex = /^PSA[0-9]{8}[A-Z]$/;
-      var result = psaregex.test(input) ? false : true;
-      return result;
-    }
-
     function ltarefvalidate(input) {
       var ltaregex1 = /^IP14[0-9]{10}[ABCDEFGHJKLMNPRSTXYZ]$/;
       var ltaregex2 = /^IP16[0-9]{10}[ABCDEFGHJKLMNPRSTXYZ]$/;
@@ -205,39 +186,17 @@
 
       errorsummarylist = document.getElementById("errorsummarylist");
       ltareferr = "";
-      psareferr = "";
-
-      psaref = document.getElementById("pensionSchemeAdministratorCheckReference").value;
       ltaref = document.getElementById("lifetimeAllowanceReference").value;
-
-      //PSA ref validation
-      if (psaref == "") {
-        psareferr = "Please enter a Scheme Administrator Reference";
-        document.getElementById("psareferr").innerHTML = psareferr;
-        document.getElementById("psareferr").className = "error-notification";
-        document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
-        err = true;
-      } else if (psarefvalidate(psaref.toUpperCase())) {
-        psareferr = "Scheme Administrator Reference must be in correct format";
-        document.getElementById("psareferr").innerHTML = psareferr;
-        document.getElementById("psareferr").className = "error-notification";
-        document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
-        err = true;
-      } else {
-        document.getElementById("psareferr").innerHTML = "";
-        document.getElementById("psareferr").className = "";
-        document.getElementById("psaref").className = "form-field form-field--tall";
-      }
 
       //LTA ref validation
       if (ltaref == "") {
-        ltareferr = "Please enter a Protection Notification Number";
+        ltareferr = "Protection Notification Number needs to be entered";
         document.getElementById("ltareferr").innerHTML = ltareferr;
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
         err = true;
       } else if (ltarefvalidate(ltaref.toUpperCase())) {
-        ltareferr = "Protection Notification Number must be in correct format";
+        ltareferr = "Protection Notification Number needs to be in the correct format";
         document.getElementById("ltareferr").innerHTML = ltareferr;
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
@@ -254,11 +213,6 @@
 
       if (err) {
         document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
-        if (psareferr != "") {
-          var entry = document.createElement('li');
-          entry.appendChild(document.createTextNode(psareferr));
-          errorsummarylist.appendChild(entry);
-        }
         if (ltareferr != "") {
           var entry = document.createElement('li');
           entry.appendChild(document.createTextNode(ltareferr));
@@ -266,36 +220,9 @@
         }
       } else {
         document.getElementById("error-summary-display").className = "flash error-summary";
-        switch (psaref.toUpperCase()) {
-          case "PSA12345678A":
-            window.location.href = "https://smudgey.github.io/result1";
-            break;
-          case "PSA12345678B":
-            window.location.href = "https://smudgey.github.io/result2";
-            break;
-          case "PSA12345678C":
-            window.location.href = "https://smudgey.github.io/result3";
-            break;
-          case "PSA12345678D":
-            window.location.href = "https://smudgey.github.io/result4";
-            break;
-          case "PSA12345678E":
-            window.location.href = "https://smudgey.github.io/result5";
-            break;
-          case "PSA12345678F":
-            window.location.href = "https://smudgey.github.io/result6";
-            break;
-          case "PSA12345678G":
-            window.location.href = "https://smudgey.github.io/result7";
-            break;
-          case "PSA12345678H":
-            window.location.href = "https://smudgey.github.io/invalidResult";
-            break;
+        switch (ltaref.toUpperCase()) {
           default:
-            document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
-            var entry = document.createElement('li');
-            entry.appendChild(document.createTextNode("The details you entered do not have a valid protection"));
-            errorsummarylist.appendChild(entry);
+            window.location.href = "https://smudgey.github.io/entryAltPSA";
         }
       }
     }
