@@ -92,7 +92,7 @@
           <h1> What's the Protection Notification Number?</h1>
 
         <div class="flash error-summary " id="error-summary-display" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
-          <h2 id="error-summary-heading" class="h3-heading">There are errors on this page</h2>
+          <h2 id="error-summary-heading" class="h3-heading">Something you’ve entered isn’t valid</h2>
           <ul class="js-error-summary-messages" id="errorsummarylist">
           </ul>
         </div>
@@ -188,13 +188,13 @@
 
       //LTA ref validation
       if (ltaref == "") {
-        ltareferr = "Protection Notification Number needs to be entered";
+        ltareferr = "Enter a Protection Notification Number";
         document.getElementById("ltareferr").innerHTML = ltareferr;
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";
         err = true;
       } else if (ltarefvalidate(ltaref.toUpperCase())) {
-        ltareferr = "Protection Notification Number needs to be in the correct format";
+        ltareferr = "The Protection Notification Number you entered isn’t correct";
         document.getElementById("ltareferr").innerHTML = ltareferr;
         document.getElementById("ltareferr").className = "error-notification";
         document.getElementById("ltaref").className = "form-field form-field--error fields-aligned";

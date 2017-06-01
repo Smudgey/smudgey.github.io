@@ -92,7 +92,7 @@
         <h1> What's the Scheme Administrator Reference?</h1>
 
         <div class="flash error-summary " id="error-summary-display" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
-          <h2 id="error-summary-heading" class="h3-heading">There are errors on this page</h2>
+          <h2 id="error-summary-heading" class="h3-heading">Something you’ve entered isn’t valid</h2>
           <ul class="js-error-summary-messages" id="errorsummarylist">
           </ul>
         </div>
@@ -195,13 +195,13 @@
 
       //PSA ref validation
       if (psaref == "") {
-        psareferr = "Scheme Administrator Reference needs to be entered";
+        psareferr = "Enter a Scheme Administrator Reference";
         document.getElementById("psareferr").innerHTML = psareferr;
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
         err = true;
       } else if (psarefvalidate(psaref.toUpperCase())) {
-        psareferr = "Scheme Administrator Reference needs to be in the correct format";
+        psareferr = "The Scheme Administrator Reference you entered isn’t correct";
         document.getElementById("psareferr").innerHTML = psareferr;
         document.getElementById("psareferr").className = "error-notification";
         document.getElementById("psaref").className = "form-field form-field--error fields-aligned form-field--tall";
