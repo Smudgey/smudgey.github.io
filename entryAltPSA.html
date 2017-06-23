@@ -85,11 +85,11 @@
     </div>
     <div id="content">
 
-      <article class="content__body">
+      <article class="content_body">
 
         <p class="">English | Cymraeg</p>
 
-        <h1> What's the Scheme Administrator Reference?</h1>
+        <h1> Scheme Administrator Reference</h1>
 
         <div class="flash error-summary " id="error-summary-display" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
           <h2 id="error-summary-heading" class="h3-heading">Something you’ve entered isn’t valid</h2>
@@ -112,7 +112,7 @@
           <input class="button" type="submit" name="submit" value="Submit" onclick="formvalidate();return false">
         </form>
         <br>
-        <a class="back-link" href="https://smudgey.github.io/entryAltLTA">Back</a>
+        <a class="back-link" href="/entryAltLTA.html">Back</a>
           
       </article>
 
@@ -227,34 +227,31 @@
         document.getElementById("error-summary-display").className = "flash error-summary";
         switch (psaref.toUpperCase()) {
           case "PSA12345678A":
-            window.location.href = "https://smudgey.github.io/result1";
+            window.location.href = "/result1.html";
             break;
           case "PSA12345678B":
-            window.location.href = "https://smudgey.github.io/result2";
+            window.location.href = "/result2.html";
             break;
           case "PSA12345678C":
-            window.location.href = "https://smudgey.github.io/result3";
+            window.location.href = "/result3.html";
             break;
           case "PSA12345678D":
-            window.location.href = "https://smudgey.github.io/result4";
+            window.location.href = "/result4.html";
             break;
           case "PSA12345678E":
-            window.location.href = "https://smudgey.github.io/result5";
+            window.location.href = "/result5.html";
             break;
           case "PSA12345678F":
-            window.location.href = "https://smudgey.github.io/result6";
+            window.location.href = "/result6.html";
             break;
           case "PSA12345678G":
-            window.location.href = "https://smudgey.github.io/result7";
+            window.location.href = "/result7.html";
             break;
           case "PSA12345678H":
-            window.location.href = "https://smudgey.github.io/invalidResult";
+            window.location.href = "/invalidResult";
             break;
           default:
-            document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
-            var entry = document.createElement('li');
-            entry.appendChild(document.createTextNode("The details you entered do not have a valid protection"));
-            errorsummarylist.appendChild(entry);
+            window.location.href = "/notFound.html"
         }
       }
     }
