@@ -5284,6 +5284,10 @@ Styleguide Table.Modifiers
     width: 38%;
 }
 
+.table--wide{
+    width: 110%
+}
+
 
 /*
 Highlight
