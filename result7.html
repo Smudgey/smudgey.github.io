@@ -60,8 +60,9 @@
 
   ga('create', 'UA-101661347-1', 'auto');
   ga('send', 'pageview');
-         var metricValue = '1';
-        ga('set', 'metric1', metricValue);
+         ga('send', 'event', 'Status', 'result', {
+            'metric2': 1
+            });
 
     </script>
 

@@ -70,11 +70,11 @@
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         
-        var metricValue = '1';
-
         ga('create', 'UA-101661347-1', 'auto');
         ga('send', 'pageview');
-        ga('set', 'Invalid Protection Status', metricValue);
+        ga('send', 'event', 'Status', 'result', {
+            'metric2': 1
+            });
 
     </script>
 
