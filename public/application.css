@@ -3131,9 +3131,9 @@ Markup:
 Styleguide Typography.size
 */
 
-.font-xxsmall {
+#font-xxsmall {
     font-family: "nta", Arial, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.4285714286;
     font-weight: 400;
     text-transform: none;
@@ -6443,6 +6443,7 @@ details {
 
 details .summary {
     text-decoration: underline;
+    font-size: 14px;
 }
 
 .summary--black {
