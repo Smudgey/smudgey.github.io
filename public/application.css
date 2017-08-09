@@ -3139,6 +3139,15 @@ Styleguide Typography.size
     text-transform: none;
 }
 
+.font-xxsmall {
+    font-family: "nta", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    font-weight: 400;
+    text-transform: none;
+}
+
+
 @media (max-width: 640px) {
     .font-xxsmall {
         font-size: 12px;
