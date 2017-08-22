@@ -138,72 +138,34 @@
 
             </div>
 
+
         </div>
-
         <div id="content">
-
             <article class="content__body">
 
                 <p class="">
+
                     English | Cymraeg
                 </p>
 
-                <div class="flash error-summary " id="error-summary-display" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
-                    <h2 id="error-summary-heading" class="h3-heading">Something you’ve entered isn’t valid</h2>
-                    <ul class="js-error-summary-messages" id="errorsummarylist">
-                    </ul>
-                </div>
-
-                <h1>Enter withdrawal date</h1>
-
-                <form>
-
-                    <div class="form-group">
-
-                        <fieldset class="form-group form-date" id="pso-fieldset">
-
-                            <span class="form-hint">Example: 18 4 2016</span>
-
-                            <label for="withdrawDay" class="form-group form-group-day">
-                            
-                            <span>
-                                Day
-                            </span>
-
-                            <input type="number" class="input--xxsmall input--no-spinner" name="withdrawDay" id="withdrawDay">
-
-                        </label>
-
-                            <label for="withdrawMonth" class="form-group form-group-month">
-
-                            <span>
-                                Month
-                            </span>
-
-                            <input type="number" class="input--xxsmall input--no-spinner" name="withdrawMonth" id="withdrawMonth">
-
-                        </label>
-
-                            <label for="withdrawYear" class="form-group form-group-year">
-                            
-                            <span>
-                                Year
-                            </span>
-
-                            <input type="number" class="input--small input--no-spinner" name="withdrawYear" id="withdrawYear">
-
-                        </label>
-
-                        </fieldset>
-
+                <div class="grid-row">
+                    <div class="transaction-banner--complete">
+                        <span class="heading-large" id="amendmentOutcome">You've withdrawn individual protection 2016</span>
+                        <!--
+                        <p class="medium" id="amendedAllowanceText">Your protected lifetime allowance is</p>
+                        <span class="bold-medium" id="protectedAmount">£1,250,000</span>
+-->
                     </div>
 
-                    <button class="button" type="submit" id="continue-button" onclick="formvalidate();return false"> Submit</button>
+                    <h2>You can apply for another protection at any time</h2>
 
-                </form>
-                <br>
-                <a class="back-link" href="/withdrawDate-summary.html">Back</a>
+                    <p>You can view any other protections you may have in your <a id="existingProtectionsLink" href="/protection-overview.html">personal tax account</a>.</p>
 
+                    <h2>Give us feedback</h2>
+
+                    <p><a href="/protect-your-lifetime-allowance/exit">What did you think of this service?</a> Your feedback helps us improve.</p>
+
+                </div>
             </article>
 
             <div class="report-error">
@@ -217,7 +179,7 @@
 
                     <form action="http://localhost:9250/contact/problem_reports" method="POST" id="error-feedback-form" class="form--feedback" novalidate="novalidate">
 
-                        <input type="hidden" name="csrfToken" value="fdcb6ff35d357a2ac55540829db46f95ab7c72a4-1503045695478-ee0bfdcfd2f4b07d50c8fe82">
+                        <input type="hidden" name="csrfToken" value="aa5b553e5c5eb5be7a8fd874414f91a251a051e2-1503040058674-22adedd2ee25fd8e115e0cd6">
 
 
                         <fieldset>
@@ -252,7 +214,6 @@
             </div>
 
         </div>
-
     </main>
 
     <footer class="group js-footer" id="footer" role="contentinfo">
@@ -292,101 +253,7 @@
     </script>
     <script src="http://localhost:9032/assets/2.222.0/javascripts/application.min.js" type="text/javascript"></script>
 
-    <script>
-        function dayValidate(day) {
-            if (day == "") {
-                return "Enter a day";
-            } else if (day > 31 || day < 1) {
-                return "Enter a valid day";
-            } else {
-                return "";
-            }
-        }
-
-        function monthValidate(month) {
-            if (month == "") {
-                return "Enter a month";
-            } else if (month > 12 || month < 1) {
-                return "Enter a valid month";
-            } else {
-                return "";
-            }
-        }
-
-        function yearValidate(year, today) {
-            if (year == "") {
-                return "Enter a year";
-            } else if (year > 2017 || year < 2016) {
-                return "Enter a valid year";
-            } else {
-                return "";
-            }
-        }
-
-        function fieldClassModifier(elemID, fieldClass, fieldErr) {
-            if (fieldErr != "") {
-                return document.getElementById(elemID).className = fieldClass + " error-field";
-            } else {
-                return document.getElementById(elemID).className = fieldClass;
-            }
-        }
-
-        function addErrorMessage(errors, errSummary) {
-            for (var x in errors) {
-                if (x != "") {
-                    var entry = document.createElement('li');
-                    entry.appendChild(document.createTextNode(errors[x]));
-                    errSummary.appendChild(entry);
-                }
-            }
-            return;
-        }
-
-        function formvalidate() {
-            var day, month, year, err, errorsummarylist, dayErr, monthErr, yearErr;
-
-            day = document.getElementById("withdrawDay").value;
-            month = document.getElementById("withdrawMonth").value;
-            year = document.getElementById("withdrawYear").value;
-
-            err = false;
-            errorsummarylist = document.getElementById("errorsummarylist");
-
-            dayErr = dayValidate(day);
-            monthErr = monthValidate(month);
-            yearErr = yearValidate(year);
-
-            if (dayErr != "" || monthErr != "" || yearErr != "") {
-                err = true;
-            }
-
-            while (errorsummarylist.firstChild) {
-                errorsummarylist.removeChild(errorsummarylist.firstChild);
-            }
-
-            if (err) {
-                // Add error summary box display and add red left border around form input
-                document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
-                document.getElementById("pso-fieldset").className = "form-group form-date form-field--error";
-
-                //Check fields if they have errors and add red border to the field if so
-                fieldClassModifier("withdrawDay", "input--xxsmall input--no-spinner", dayErr);
-                fieldClassModifier("withdrawMonth", "input--xxsmall input--no-spinner", monthErr);
-                fieldClassModifier("withdrawYear", "input--small input--no-spinner", yearErr);
-
-                var errors = [dayErr, monthErr, yearErr]
-
-                addErrorMessage(errors, errorsummarylist);
-
-            } else {
-                document.getElementById("error-summary-display").className = "flash error-summary";
-                window.location.href = "/withdraw-confirmation.html";
-            }
-        }
-
-    </script>
 
 </body>
-
 
 </html>
