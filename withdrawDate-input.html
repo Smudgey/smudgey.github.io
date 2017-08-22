@@ -295,55 +295,108 @@
     <script>
         function dayValidate(day) {
             if (day == "") {
-                return "Enter a day";
+                return {
+                    valid: false,
+                    dayErrorMessage: "Enter a day"
+                };
             } else if (day > 31 || day < 1) {
-                return "Enter a valid day";
+                return {
+                    valid: false,
+                    dayErrorMessage: "Enter a valid day"
+                };
             } else {
-                return "";
+                return {
+                    valid: true,
+                    dayErrorMessage: ""
+                };
             }
         }
 
         function monthValidate(month) {
             if (month == "") {
-                return "Enter a month";
+                return {
+                    valid: false,
+                    monthErrorMessage: "Enter a month"
+                };
             } else if (month > 12 || month < 1) {
-                return "Enter a valid month";
+                return {
+                    valid: false,
+                    monthErrorMessage: "Enter a valid month"
+                };
             } else {
-                return "";
+                return {
+                    valid: true,
+                    monthErrorMessage: ""
+                };
             }
         }
 
         function yearValidate(year, today) {
             if (year == "") {
-                return "Enter a year";
+                return {
+                    valid: false,
+                    yearErrorMesage: "Enter a year"
+                };
             } else if (year > 2017 || year < 2016) {
-                return "Enter a valid year";
+                return {
+                    valid: false,
+                    yearErrorMesage: "Enter a valid year"
+                };
             } else {
-                return "";
+                return {
+                    valid: true,
+                    yearErrorMesage: ""
+                };
             }
         }
 
         function fieldClassModifier(elemID, fieldClass, fieldErr) {
-            if (fieldErr != "") {
+            if (fieldErr) {
                 return document.getElementById(elemID).className = fieldClass + " error-field";
             } else {
                 return document.getElementById(elemID).className = fieldClass;
             }
         }
 
-        function addErrorMessage(errors, errSummary) {
-            for (var x in errors) {
-                if (x != "") {
-                    var entry = document.createElement('li');
-                    entry.appendChild(document.createTextNode(errors[x]));
-                    errSummary.appendChild(entry);
-                }
+        function createErrorMessage(dayValid, monthValid, yearValid) {
+            if (!dayValid.valid && (monthValid.valid && yearValid.valid)) {
+                return dayValid.dayErrorMessage;
+            } else if (!monthValid.valid && (dayValid.valid && yearValid.valid)) {
+                return monthValid.monthErrorMessage;
+            } else if (!yearValid.valid && (dayValid.valid && monthValid.valid)) {
+                return yearValid.yearErrorMesage;
+            } else {
+                return "Enter a valid date";
             }
-            return;
+        }
+
+        function validateDate(day, month, year) {
+            var protectionStart = new Date(2017, 7, 17);
+            var today = new Date();
+            var enteredDate = new Date(year, month - 1, day);
+            if (enteredDate < protectionStart) {
+                return "Date must be after protectection start date";
+            } else if (enteredDate > today) {
+                return "Date cannot be in the future";
+            } else {
+                return "";
+            }
+        }
+
+        function fieldClassModifier(elemID, fieldClass, fieldValid) {
+            if (!fieldValid) {
+                return document.getElementById(elemID).className = fieldClass + " error-field";
+            } else {
+                return document.getElementById(elemID).className = fieldClass;
+            }
         }
 
         function formvalidate() {
-            var day, month, year, err, errorsummarylist, dayErr, monthErr, yearErr;
+            var day, month, year, err, errorsummarylist, dayValid, monthValid, yearValid;
+
+            fieldClassModifier("withdrawDay", "input--xxsmall input--no-spinner", true);
+            fieldClassModifier("withdrawMonth", "input--xxsmall input--no-spinner", true);
+            fieldClassModifier("withdrawYear", "input--small input--no-spinner", true);
 
             day = document.getElementById("withdrawDay").value;
             month = document.getElementById("withdrawMonth").value;
@@ -352,11 +405,13 @@
             err = false;
             errorsummarylist = document.getElementById("errorsummarylist");
 
-            dayErr = dayValidate(day);
-            monthErr = monthValidate(month);
-            yearErr = yearValidate(year);
+            dayValid = dayValidate(day);
+            monthValid = monthValidate(month);
+            yearValid = yearValidate(year);
 
-            if (dayErr != "" || monthErr != "" || yearErr != "") {
+            var validDate = validateDate(day, month, year);
+
+            if (!dayValid.valid || !monthValid.valid || !yearValid.valid) {
                 err = true;
             }
 
@@ -370,14 +425,22 @@
                 document.getElementById("pso-fieldset").className = "form-group form-date form-field--error";
 
                 //Check fields if they have errors and add red border to the field if so
-                fieldClassModifier("withdrawDay", "input--xxsmall input--no-spinner", dayErr);
-                fieldClassModifier("withdrawMonth", "input--xxsmall input--no-spinner", monthErr);
-                fieldClassModifier("withdrawYear", "input--small input--no-spinner", yearErr);
+                fieldClassModifier("withdrawDay", "input--xxsmall input--no-spinner", dayValid.valid);
+                fieldClassModifier("withdrawMonth", "input--xxsmall input--no-spinner", monthValid.valid);
+                fieldClassModifier("withdrawYear", "input--small input--no-spinner", yearValid.valid);
 
-                var errors = [dayErr, monthErr, yearErr]
+                var errMsg = createErrorMessage(dayValid, monthValid, yearValid);
 
-                addErrorMessage(errors, errorsummarylist);
+                var entry = document.createElement('li');
+                entry.appendChild(document.createTextNode(errMsg));
+                errorsummarylist.appendChild(entry);
+            } else if (validDate != "") {
+                document.getElementById("error-summary-display").className = "flash error-summary error-summary--show";
+                document.getElementById("pso-fieldset").className = "form-group form-date form-field--error";
 
+                var entry = document.createElement('li');
+                entry.appendChild(document.createTextNode(validDate));
+                errorsummarylist.appendChild(entry);
             } else {
                 document.getElementById("error-summary-display").className = "flash error-summary";
                 window.location.href = "/withdraw-confirmation.html";
