@@ -323,7 +323,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre, small, strike, strong, sub, sup, tt,
 
 .heading-xlarge {
     font-family: "nta", Arial, sans-serif;
-    font-size: 48px;
+    font-size: 36px;
     line-height: 1.0416666667;
     font-weight: 400;
     text-transform: none;
@@ -3467,6 +3467,7 @@ body {
 
 #content {
     display: block;
+    width:960px;
     max-width: 960px;
     margin: 0 auto;
     padding: 0em 0.7894736842em 1.6842105263em 0.7894736842em;

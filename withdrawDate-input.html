@@ -146,17 +146,21 @@
 
                 <p class="">
                     English | Cymraeg
-                </p>
+                </p>               
 
-                <div class="flash error-summary " id="error-summary-display" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                <h1 class="heading-xlarge">Withdraw from Individual 2016 protection</h1>
+                
+                 <div class="alert alert--info" role="alert">
+                              <p class="alert__message">Once you withdraw, you will no longer have Individual 2016 protection. This might mean you have to pay a higher rate of tax on your pension.</p>
+                            </div>
+                                
+                <form>
+                    
+                     <div class="flash error-summary " id="error-summary-display" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                     <h2 id="error-summary-heading" class="h3-heading">Something you’ve entered isn’t valid</h2>
                     <ul class="js-error-summary-messages" id="errorsummarylist">
                     </ul>
                 </div>
-
-                <h1>Enter withdrawal date</h1>
-
-                <form>
 
                     <div class="form-group">
 
@@ -198,11 +202,11 @@
 
                     </div>
 
-                    <button class="button" type="submit" id="continue-button" onclick="formvalidate();return false"> Submit</button>
+                    <button class="button" type="submit" id="continue-button" onclick="formvalidate();return false"> Save and continue</button>
 
                 </form>
                 <br>
-                <a class="back-link" href="/withdrawDate-summary.html">Back</a>
+                <a class="back-link" href="/withdraw-start.html">Back</a>
 
             </article>
 
@@ -443,7 +447,7 @@
                 errorsummarylist.appendChild(entry);
             } else {
                 document.getElementById("error-summary-display").className = "flash error-summary";
-                window.location.href = "/withdraw-confirmation.html";
+                window.location.href = "/withdraw-confirm.html";
             }
         }
 
